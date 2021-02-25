@@ -460,7 +460,7 @@
         margin-right: auto;
     }
 
-    &__friends {}
+    // &__friends {}
 
     &__photo {
         // put box-sizing back to default value so the border we're adding to the photo doesn't make the image shrink
@@ -539,5 +539,72 @@
         color: var(--color-grey-light-2);
         font-family: sans-serif; // the style we want
         z-index: 1;
+    }
+}
+
+////////////////////////////////////////////////
+// CALL TO ACTION
+.cta {
+    padding: 3.5rem 0;
+    text-align: center; // to center text and button
+
+    &__book-now {
+        font-size: 2rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        margin-bottom: 2.5rem;
+    }
+}
+
+////////////////////////////////////////////////
+// BUTTON
+.btn {
+    font-size: 1.5rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    border-radius: 100px;
+    border: none;
+    background-image: linear-gradient(to right, var(--color-primary-light), var(--color-primary-dark));
+    color: #fff;
+    position: relative;
+    overflow: hidden; // make invisible button disappear since it's overflowing the btn
+    cursor: pointer;
+
+    // to not repeat code
+    &>* {
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        transition: all .2s;
+    }
+
+    &__visible {
+        padding: 2rem 7.5rem;
+    }
+
+    &__invisible {
+        position: absolute;
+        padding: 2rem 0;
+        left: 0;
+        top: -100%; // move up exactly the size of the element (if 50px height move up by that number)
+    }
+
+    &:hover {
+        // transition doesn't work for background-image and gradients, so no animations here
+        background-image: linear-gradient(to left, var(--color-primary-light), var(--color-primary-dark));
+    }
+
+    &:hover &__visible {
+        transform: translateY(100%); // move down by 100% of its height
+    }
+
+    &:hover &__invisible {
+        // move it back down
+        top: 0;
+    }
+
+    &:focus {
+        outline: none;
+        animation: pulsate 1s infinite;
     }
 }
