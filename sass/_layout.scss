@@ -30,6 +30,7 @@
 }
 
 // Flexbox item
+// Flexbox container
 .sidebar {
     background-color: var(--color-grey-dark-1);
 
@@ -37,11 +38,16 @@
     // good practice to use shorten property
     // flex-grow | flex-shrink | flex-basis
     flex: 0 0 18%; // since we're using a percentage it will automatically shrink so no need of flex-shrink
+
+    display: flex;
+    flex-direction: column; // change the main direction from left-right to top-bottom
+    justify-content: space-between; // now we can use space between to push the legal text to the bottom
 }
 
 // Flexbox item
 .hotel-view {
     background-color: orangered;
+    height: 80rem;
 
     // grow as much as the flexbox item can, occupy all the available space it has
     // in this case is 82% --> 100% - 18%

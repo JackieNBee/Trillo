@@ -22,7 +22,7 @@
                 <button class="search__button">
                     <!-- Best way to include SVGs in HTML -->
                     <svg class="search__icon">
-                        <!-- sprite file -->
+                        <!-- by having a sprite file we only have to do one HTTP Request to get SVGs -->
                         <!-- xlink:href is only going to work on a web server -->
                         <use xlink:href="img/sprite.svg#icon-magnifying-glass"></use>
                     </svg>
@@ -53,9 +53,50 @@
         <!-- container for positioning sidebar and hotel view -->
         <!-- contains everything below the header -->
         <div class="content">
+
             <nav class="sidebar">
-                Navigation
+                <ul class="side-nav">
+                    <li class="side-nav__item">
+                        <a href="#" class="side-nav__link">
+                            <svg class="side-nav__icon">
+                                <use xlink:href="img/sprite.svg#icon-home"></use>
+                            </svg>
+                            <span>Hotel</span>
+                        </a>
+                    </li>
+                    <li class="side-nav__item">
+                        <a href="#" class="side-nav__link">
+                            <svg class="side-nav__icon">
+                                <use xlink:href="img/sprite.svg#icon-aircraft-take-off"></use>
+                            </svg>
+                            <span>Flight</span>
+                        </a>
+                    </li>
+                    <li class="side-nav__item">
+                        <a href="#" class="side-nav__link">
+                            <svg class="side-nav__icon">
+                                <use xlink:href="img/sprite.svg#icon-key"></use>
+                            </svg>
+                            <span>Car rental</span>
+                        </a>
+                    </li>
+                    <li class="side-nav__item">
+                        <a href="#" class="side-nav__link">
+                            <svg class="side-nav__icon">
+                                <use xlink:href="img/sprite.svg#icon-map"></use>
+                            </svg>
+                            <span>Tours</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Legal Text -->
+                <div class="legal">
+                    &copy; 2021 by Trillo. All rights reserved.
+                </div>
             </nav>
+
+
             <main class="hotel-view">
                 Hotel View
             </main>
