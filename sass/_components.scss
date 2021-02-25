@@ -2,25 +2,81 @@
 // LOGO
 .logo {
     height: 3.25rem;
+    margin-left: 3rem;
 }
 
 ////////////////////////////////////////////////
 // SEARCH
+// Flexbox item
+// Flexbox container
 .search {
-    &__input {}
+    // background-color: orangered; // for testing porpouses
+    flex: 0 0 40%;
 
-    &__button {}
+    display: flex;
+    align-items: center; // vertically align
+    justify-content: center; // horizontally align
+
+    &__input {
+        // input elements by default don't inherit font properties
+        // inherit the font size of header
+        font-family: inherit;
+        font-size: inherit;
+        color: inherit;
+        background-color: var(--color-grey-light-2);
+        border: none;
+        padding: .7rem 2rem;
+        // doesn't matter the value just put a high number even in px
+        border-radius: 100px;
+        width: 90%;
+        transition: all .2s;
+        // to move button on top of the input
+        margin-right: -3.25rem;
+
+        // when focused, don't show the outline and expand to occupy 100% of the parent's width
+        &:focus {
+            outline: none;
+            width: 100%;
+            background-color: var(--color-grey-light-3);
+        }
+
+        &::-webkit-input-placeholder {
+            font-weight: 100;
+            color: var(--color-grey-light-4);
+        }
+    }
+
+    // when the input is focused, change the adjacent button's background to the same color
+    &__input:focus+&__button {
+        background-color: var(--color-grey-light-3);
+    }
+
+    &__button {
+        border: none;
+        background-color: var(--color-grey-light-2);
+
+        &:focus {
+            outline: none;
+        }
+
+        &:active {
+            transform: translateY(2px);
+        }
+    }
 
     &__icon {
         // it's easier to style a SVG compared to an icon font
         height: 2rem;
         width: 2rem;
+        // to change SVG's color
+        fill: var(--color-grey-dark-3);
     }
 }
 
 ////////////////////////////////////////////////
 // USER NAVIGATION
 .user-nav {
+    background-color: greenyellow;
 
     &__icon-box {}
 

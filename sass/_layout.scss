@@ -10,10 +10,18 @@
     min-height: 50rem;
 }
 
+// Flexbox container
 .header {
+    font-size: 1.4rem;
     height: 7rem;
     background-color: #fff;
     border-bottom: .2rem solid var(--color-grey-light-1);
+
+    display: flex;
+    // align elements on main axis
+    justify-content: space-between;
+    // alight elements on cross axis;
+    align-items: center;
 }
 
 // Flexbox container
