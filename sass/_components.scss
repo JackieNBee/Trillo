@@ -80,7 +80,7 @@
 // Flexbox container
 .user-nav {
     // background-color: greenyellow; // for testing porpouses
-    // overrides the align-items: center in header 
+    // overrides the align-items: center in header
     // because we want the user-nav to occupy all the available height
     align-self: stretch;
 
@@ -262,10 +262,18 @@
 .overview {
 
     display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--color-grey-light-2);
 
+    &__heading {
+        font-size: 2.25rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 1.5rem 3rem;
+    }
 
-    &__heading {}
-
+    // Flexbox container
     &__stars {
         // creates space but element occupy entire space
         // flex: 1;
@@ -276,6 +284,9 @@
         // to create a space between two element without having it to occupy the entire space
         // 2 elements --------space--------- 2 elements
         margin-right: auto;
+
+        // to fix stars not perfectly vertically alignen and nicely side by side
+        display: flex;
     }
 
     &__icon-star,
@@ -285,13 +296,83 @@
         fill: var(--color-primary);
     }
 
-    &__location {}
+    &__icon-location {
+        margin-right: .5rem;
+    }
 
-    &__rating {}
+    // Flexbox container
+    &__location {
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+    }
 
-    &__rating-average {}
+    // Flexbox container
+    &__rating {
+        background-color: var(--color-primary);
+        color: #fff;
+        margin-left: 3rem;
+        padding: 0 2.25rem;
+        align-self: stretch;
 
-    &__rating-count {}
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+    }
+
+    &__rating-average {
+        font-size: 2.25rem;
+        font-weight: 300;
+        margin-bottom: -3px;
+    }
+
+    &__rating-count {
+        font-size: .8rem;
+        text-transform: uppercase;
+    }
 
 
+}
+
+////////////////////////////////////////////////
+// BUTTON INLINE
+.btn-inline {
+    border: none;
+    color: var(--color-primary);
+    font-size: inherit; // for reusability porpouses -> we set the font-size on the parent element
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 2px;
+    display: inline-block;
+    background: transparent; // for reusability porpouses
+    cursor: pointer;
+    transition: all .2s;
+
+    &:hover {
+        color: var(--color-grey-dark-1);
+        // border-bottom color will automatically update as well since we used currentColor
+    }
+
+    &:focus {
+        outline: none;
+        // infinite pulsate animation when element is focused
+        animation: pulsate 1s infinite;
+    }
+}
+
+@keyframes pulsate {
+    0% {
+        transform: scale(1);
+        box-shadow: none;
+    }
+
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 1rem 4rem rgba(0, 0, 0, .25);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: none;
+    }
 }
