@@ -57,6 +57,7 @@
 
 // Flexbox container
 .detail {
+    font-size: 1.4rem;
     display: flex;
     padding: 4.5rem;
     background-color: var(--color-grey-light-1);
@@ -65,7 +66,6 @@
 
 // Flexbox item
 .description {
-    font-size: 1.4rem;
     background-color: #fff;
     box-shadow: var(--shadow-light);
     padding: 3rem;
@@ -76,9 +76,15 @@
 }
 
 // Flexbox item
+// Flexbox container
 .user-reviews {
-    background-color: yellowgreen;
+    // background-color: yellowgreen; // for testing porpouses
 
     // occupy the remaining space
     flex: 1;
+
+    // we're doing this basically just to horizontally center the "Show all" button
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
