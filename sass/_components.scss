@@ -376,3 +376,92 @@
         box-shadow: none;
     }
 }
+
+////////////////////////////////////////////////
+// PARAGRAPH
+.paragraph:not(:last-of-type) {
+    // last paragraph doesn't have bottom margin
+    margin-bottom: 2rem;
+}
+
+////////////////////////////////////////////////
+// LIST
+// Flexbox container
+.list {
+    list-style: none;
+    margin: 3rem 0;
+    padding: 3rem 0;
+    border-top: var(--line);
+    border-bottom: var(--line);
+
+    display: flex;
+    flex-wrap: wrap;
+
+    &__item {
+        // we want two elements side by side so we every item has 50% width
+        flex: 0 0 50%;
+        margin-bottom: .7rem;
+    }
+
+    // we don't want to mess up the HTML by writing 8 SVGs elements
+    // so we import them in CSS
+    &__item::before {
+        content: "";
+        display: inline-block;
+        height: 1rem;
+        width: 1rem;
+        margin-right: .7rem;
+
+        // Approach to include SVGs for older browsers
+        // cannot change the color of the SVGs
+        // background-image: url(../img/chevron-thin-right.svg);
+        // background-size: cover;
+
+        // Approach for newer browsers - using MASKS
+        // Mask: mask defines an area where we can through the element and see what's behind, everything else will be covered
+        // it's like clipping
+        background-color: var(--color-primary); // "color" of the icons
+        // we can see the background color only where the icon is located so it turns out to have the background's color
+        -webkit-mask-image: url(../img/chevron-thin-right.svg);
+        -webkit-mask-size: cover;
+        mask-image: url(../img/chevron-thin-right.svg);
+        mask-size: cover;
+
+    }
+}
+
+////////////////////////////////////////////////
+// RECOMMEND
+// Flexbox container
+.recommend {
+    font-size: 1.3rem;
+    color: var(--color-grey-dark-3);
+
+    display: flex;
+    align-items: center;
+    // in this case we could have also used justify-content instead of margin auto since we want the space between only two elements
+    // justify-content: space-between;
+
+    &__count {
+        // TRICK to make space between elements
+        // useful if we cannot reach the desired result using just Flexbox
+        // e.g. for: el1 - el2 - el3 --- space --- el4
+        margin-right: auto;
+    }
+
+    &__friends {}
+
+    &__photo {
+        // put box-sizing back to default value so the border we're adding to the photo doesn't make the image shrink
+        box-sizing: content-box;
+        height: 4rem;
+        width: 4rem;
+        border-radius: 50%;
+        border: 3px solid #fff; // creates the white space between imgs
+
+        &:not(:last-child) {
+            // to make imgs overlap with each other
+            margin-right: -1.5rem;
+        }
+    }
+}
