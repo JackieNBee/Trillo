@@ -238,3 +238,60 @@
     text-align: center;
     padding: 2.5rem;
 }
+
+////////////////////////////////////////////////
+// GALLERY
+// Flexbox container
+.gallery {
+
+    // to put imgs side by side
+    // without having to use width 33.333%, float and clear-fix hack!
+    display: flex;
+
+    &__photo {
+        // flexible images for responsive design --> need to use % for fluid images
+        width: 100%;
+        // to avoid blank space under imgs when we leave the as inline elements --> better to put them as block or inline-block
+        display: block;
+    }
+}
+
+////////////////////////////////////////////////
+// HOTEL OVERVIEW
+// Flexbox container
+.overview {
+
+    display: flex;
+
+
+    &__heading {}
+
+    &__stars {
+        // creates space but element occupy entire space
+        // flex: 1;
+
+        // background-color: orangered; // for testing porpouses
+
+        // very useful TRICK to use margin auto with Flexbox
+        // to create a space between two element without having it to occupy the entire space
+        // 2 elements --------space--------- 2 elements
+        margin-right: auto;
+    }
+
+    &__icon-star,
+    &__icon-location {
+        width: 1.75rem;
+        height: 1.75rem;
+        fill: var(--color-primary);
+    }
+
+    &__location {}
+
+    &__rating {}
+
+    &__rating-average {}
+
+    &__rating-count {}
+
+
+}
