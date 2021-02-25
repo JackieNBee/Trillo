@@ -1,0 +1,41 @@
+.container {
+    // if there's enouth space, occupy 120rem
+    // if there's not, simply occupy 100% of the available viewport width
+    max-width: 120rem;
+    // to horizontally center
+    margin: 8rem auto;
+    background-color: var(--color-grey-light-1);
+    box-shadow: var(--shadow-dark);
+
+    min-height: 50rem;
+}
+
+.header {
+    height: 7rem;
+    background-color: #fff;
+    border-bottom: .2rem solid var(--color-grey-light-1);
+}
+
+// Flexbox container
+.content {
+    display: flex;
+}
+
+// Flexbox item
+.sidebar {
+    background-color: var(--color-grey-dark-1);
+
+    // to define a width for a flexbox item we should always use flex-basis
+    // good practice to use shorten property
+    // flex-grow | flex-shrink | flex-basis
+    flex: 0 0 18%; // since we're using a percentage it will automatically shrink so no need of flex-shrink
+}
+
+// Flexbox item
+.hotel-view {
+    background-color: orangered;
+
+    // grow as much as the flexbox item can, occupy all the available space it has
+    // in this case is 82% --> 100% - 18%
+    flex: 1;
+}
