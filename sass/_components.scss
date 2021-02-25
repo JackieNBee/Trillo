@@ -145,15 +145,86 @@
 ////////////////////////////////////////////////
 // SIDE NAVIGATION
 .side-nav {
+    font-size: 1.4rem;
+    list-style: none;
+    margin-top: 3.5rem;
 
-    &__item {}
+    &__item {
+        position: relative;
 
-    &__link {}
+        // put a bottom margin except for the last child inside the parent container
+        &:not(:last-child) {
+            margin-bottom: .5rem;
+        }
+    }
+
+    // How to create the effect when hovering an item on the sidebar:
+    // create a pseudo element :before that will do the growing animation when the item is hovered
+    &__item::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 3px;
+        background-color: var(--color-primary);
+        transform: scaleY(0); // kinda hide the pseudo element in normal state
+        // from where in the element the trasform property starts, by default is center
+        // can use to make very cool effects
+        // transform-origin: bottom;
+        // make the animations of the pseudo element
+        // we can set different settings for different properties
+        // so it's possible to create "staged" animations: one happens after another
+        // and have different durations and timing functions
+        transition: transform .2s,
+            width .4s cubic-bezier(1, 0, 0, 1) .2s,
+            background-color .1s; // expand the width in 0.4s with custom timing function after the vertical scaling (thanks to  the delay of 0.2s)
+    }
+
+    // style for when the item is hovered or with active variant specified in HTML
+    &__item:hover::before,
+    &__item--active::before {
+        transform: scaleY(1); // make the pseudo element grow vertically when hovered
+        // from 3px to 100%
+        width: 100%;
+    }
+
+    // change the background color (of the pseudo-element) when the item is clicked
+    &__item:active::before {
+        background-color: var(--color-primary-light);
+    }
+
+    // Flexbox container
+    // parent of <svg> icon and <span> text
+    &__link:link,
+    &__link:visited {
+        color: var(--color-grey-light-1);
+        text-decoration: none;
+        text-transform: uppercase;
+        display: block;
+        padding: 1.5rem 3rem;
+
+        position: relative; // we need to set have a specified position in order to use z-index
+        z-index: 10; // put the link (icon and text) on top of the :before pseudo-element
+
+        display: flex;
+        align-items: center;
+    }
+
+    // thanks to currentColor, both the icon and the text change to the same color
+    // instead of having to write a :hover also for the icon
+    // &__link:hover {
+    //     color: orangered;
+    // }
 
     &__icon {
         // usually we style SVGs as squares
         width: 1.75rem;
         height: 1.75rem;
+        margin-right: 2rem;
+        // currentColor = current color of the element or of the parent
+        // instead of writing again var(..)
+        fill: currentColor; // it's like inherit
     }
 
 
