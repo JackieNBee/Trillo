@@ -1,0 +1,44 @@
+////////////////////////////////////////////////
+// LOGO
+.logo {
+    height: 3.25rem;
+}
+
+////////////////////////////////////////////////
+// SEARCH
+.search {
+    &__input {}
+
+    &__button {}
+
+    &__icon {
+        // it's easier to style a SVG compared to an icon font
+        height: 2rem;
+        width: 2rem;
+    }
+}
+
+////////////////////////////////////////////////
+// USER NAVIGATION
+.user-nav {
+
+    &__icon-box {}
+
+    &__icon {
+        height: 2.25rem;
+        width: 2.25rem;
+    }
+
+    &__notification {}
+
+    &__user {}
+
+    &__user-photo {
+        height: 3.75rem;
+        // to make it round
+        border-radius: 50%;
+    }
+
+    &__user-name {}
+
+}
