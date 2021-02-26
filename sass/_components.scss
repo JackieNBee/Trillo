@@ -506,18 +506,25 @@
 
         // Approach to include SVGs for older browsers
         // cannot change the color of the SVGs
-        // background-image: url(../img/chevron-thin-right.svg);
-        // background-size: cover;
+        background-image: url(../img/chevron-thin-right.svg);
+        background-size: cover;
 
         // Approach for newer browsers - using MASKS
         // Mask: mask defines an area where we can through the element and see what's behind, everything else will be covered
         // it's like clipping
-        background-color: var(--color-primary); // "color" of the icons
-        // we can see the background color only where the icon is located so it turns out to have the background's color
-        -webkit-mask-image: url(../img/chevron-thin-right.svg);
-        -webkit-mask-size: cover;
-        mask-image: url(../img/chevron-thin-right.svg);
-        mask-size: cover;
+        // if the browser supports mask, use it. Otherwise go with old browsers approach
+        @supports (-webkit-mask-image: url()) {
+            background-color: var(--color-primary); // "color" of the icons
+            // we can see the background color only where the icon is located so it turns out to have the background's color
+            -webkit-mask-image: url(../img/chevron-thin-right.svg);
+            -webkit-mask-size: cover;
+            mask-image: url(../img/chevron-thin-right.svg);
+            mask-size: cover;
+
+            // remove background-image in order to make this method work
+            background-image: none;
+        }
+
 
     }
 }
