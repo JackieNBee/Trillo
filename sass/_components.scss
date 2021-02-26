@@ -149,13 +149,31 @@
     list-style: none;
     margin-top: 3.5rem;
 
+    // Flexbox container
+    @media only screen and (max-width: $bp-medium) {
+        // put the items side by side
+        display: flex;
+        margin: 0;
+    }
+
     &__item {
         position: relative;
 
         // put a bottom margin except for the last child inside the parent container
         &:not(:last-child) {
             margin-bottom: .5rem;
+
+            @media only screen and (max-width: $bp-medium) {
+                // remove bottom margin
+                margin: 0;
+            }
         }
+
+        @media only screen and (max-width: $bp-medium) {
+            // let the items grow as much as they can so in case each will occupy 25% of the available space (4 items)
+            flex: 1;
+        }
+
     }
 
     // How to create the effect when hovering an item on the sidebar:
@@ -209,6 +227,15 @@
 
         display: flex;
         align-items: center;
+
+
+        @media only screen and (max-width: $bp-medium) {
+            // horizontallu align
+            justify-content: center;
+            // increase padding
+            padding: 2rem;
+        }
+
     }
 
     // thanks to currentColor, both the icon and the text change to the same color
@@ -237,6 +264,11 @@
     color: var(--color-grey-light-4);
     text-align: center;
     padding: 2.5rem;
+
+    @media only screen and (max-width: $bp-medium) {
+        // remove the legal text
+        display: none;
+    }
 }
 
 ////////////////////////////////////////////////
@@ -460,7 +492,11 @@
         margin-right: auto;
     }
 
-    // &__friends {}
+    // Flexbox container
+    &__friends {
+        // put and KEEP photos side by side
+        display: flex;
+    }
 
     &__photo {
         // put box-sizing back to default value so the border we're adding to the photo doesn't make the image shrink
@@ -472,7 +508,7 @@
 
         &:not(:last-child) {
             // to make imgs overlap with each other
-            margin-right: -1.5rem;
+            margin-right: -2rem;
         }
     }
 }
@@ -486,6 +522,13 @@
     margin-bottom: 3.5rem;
     position: relative;
     overflow: hidden; // hide overflow part of quotation mark
+
+    @media only screen and (max-width: $bp-medium) {
+        // decrease padding
+        padding: 2rem;
+        // decrese bottom margin
+        margin-bottom: 3rem;
+    }
 
     &__text {
         margin-bottom: 2rem;
@@ -547,6 +590,11 @@
 .cta {
     padding: 3.5rem 0;
     text-align: center; // to center text and button
+
+    @media only screen and (max-width: $bp-medium) {
+        // decrease padding
+        padding: 2.5rem 0;
+    }
 
     &__book-now {
         font-size: 2rem;

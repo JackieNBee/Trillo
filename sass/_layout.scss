@@ -8,6 +8,13 @@
     box-shadow: var(--shadow-dark);
 
     min-height: 50rem; // for testing porpouses
+
+    @media only screen and (max-width: $bp-largest) {
+        margin: 0; // remove the background
+        // to fix background coming back on $bp-large breakpoint
+        max-width: 100%;
+        width: 100%;
+    }
 }
 
 // Flexbox container
@@ -27,6 +34,11 @@
 // Flexbox container
 .content {
     display: flex;
+
+    @media only screen and (max-width: $bp-medium) {
+        // put the sidebar on top of the hotel-view
+        flex-direction: column;
+    }
 }
 
 // Flexbox item
@@ -62,6 +74,11 @@
     padding: 4.5rem;
     background-color: var(--color-grey-light-1);
     border-bottom: var(--line);
+
+    @media only screen and (max-width: $bp-medium) {
+        // decrease padding
+        padding: 3rem;
+    }
 }
 
 // Flexbox item
@@ -72,7 +89,14 @@
     // set 60% of available width
     // when we use % for flex-basis we usally set flex-grow and flex-shrink to 0
     flex: 0 0 60%;
-    margin-right: 4.5rem; // put some space between description and reviews
+    margin-right: 4.5rem; // put some space between description and reviews - same value as padding of .detail
+
+    @media only screen and (max-width: $bp-medium) {
+        // decrease padding
+        padding: 2rem;
+        // decrease right margin
+        margin-right: 3rem;
+    }
 }
 
 // Flexbox item

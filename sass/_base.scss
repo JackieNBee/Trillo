@@ -41,6 +41,13 @@ Grey dark 3: #999
     --line: 1px solid var(--color-grey-light-2)
 }
 
+// we cannot use CSS Variables in media queries so we need to declare SCSS Variables for that
+// we can use both CSS and SCSS Variables in the same project
+// largest breakpoint, remember to use "em" instead of "rem" or "px" for Media Queries
+$bp-largest: 75em; // 1200px => 1200/16 = 75em
+$bp-large: 68.75em; // 1100px
+$bp-medium: 56.25em; // 900px
+
 * {
     margin: 0;
     padding: 0;
@@ -56,6 +63,13 @@ html {
     box-sizing: border-box;
     // Root Font Size
     font-size: 62.5%; // 1rem = 10px ==> 10px / 16px(browser default value) = 62.5%
+
+    @media only screen and (max-width: $bp-large) {
+        // reduce the font-size
+        // let's put 8px => 8/16 = 50%
+        font-size: 50%;
+
+    }
 }
 
 body {
