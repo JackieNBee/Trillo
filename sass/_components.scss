@@ -18,6 +18,16 @@
     align-items: center; // vertically align
     justify-content: center; // horizontally align
 
+    @media only screen and (max-width: $bp-smallest) {
+        // move the searchbar to be the last element of the container
+        order: 1;
+        // let the searchbar occupy an entire row
+        flex: 0 0 100%;
+        // fake the searchbar to be from side to side so it's less noticeable that it's not perfectly centered
+        // TO-FIX the focus mode
+        background-color: var(--color-grey-light-2);
+    }
+
     &__input {
         // input elements by default don't inherit font properties
         // inherit the font size of header
@@ -236,6 +246,13 @@
             padding: 2rem;
         }
 
+        @media only screen and (max-width: $bp-small) {
+            // put the icon on top of the text
+            flex-direction: column;
+            // decrease (sides') padding
+            padding: 1.5rem .5rem;
+        }
+
     }
 
     // thanks to currentColor, both the icon and the text change to the same color
@@ -252,6 +269,16 @@
         // currentColor = current color of the element or of the parent
         // instead of writing again var(..)
         fill: currentColor; // it's like inherit
+
+        @media only screen and (max-width: $bp-small) {
+            // remove the right margin in order to have the icon horizontally centered
+            margin-right: 0;
+            // put some margin to the bottom
+            margin-bottom: .7rem;
+            // decrease the size
+            width: 1.5rem;
+            height: 1.5rem;
+        }
     }
 
 
@@ -303,6 +330,13 @@
         text-transform: uppercase;
         letter-spacing: 1px;
         padding: 1.5rem 3rem;
+
+        @media only screen and (max-width: $bp-small) {
+            // decrease the font-size
+            font-size: 1.8rem;
+            // decrease the padding
+            padding: 1.25rem 2rem;
+        }
     }
 
     // Flexbox container
@@ -349,19 +383,34 @@
 
         display: flex;
         flex-direction: column;
-        align-content: center;
+        align-items: center; // PAY ATTENTION NOT TO WRITE align-content !!!
         justify-content: center;
+
+        @media only screen and (max-width: $bp-small) {
+            // decrease the padding
+            padding: 0 1.5rem;
+        }
     }
 
     &__rating-average {
         font-size: 2.25rem;
         font-weight: 300;
         margin-bottom: -3px;
+
+        @media only screen and (max-width: $bp-small) {
+            // decrease the font-size
+            font-size: 1.8rem;
+        }
     }
 
     &__rating-count {
         font-size: .8rem;
         text-transform: uppercase;
+
+        @media only screen and (max-width: $bp-small) {
+            // decrease the font-size
+            font-size: .5rem;
+        }
     }
 
 

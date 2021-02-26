@@ -29,6 +29,15 @@
     justify-content: space-between;
     // alight elements on cross axis;
     align-items: center;
+
+    @media only screen and (max-width: $bp-smallest) {
+        // allow flex-items to wrap, especially let the searchbar move to a new row
+        flex-wrap: wrap;
+        // put a good amount of space around the flex items 
+        align-content: space-around;
+        // increase the height
+        height: 11rem;
+    }
 }
 
 // Flexbox container
@@ -79,6 +88,13 @@
         // decrease padding
         padding: 3rem;
     }
+
+    // when we have more media queries we have to write the largest first and then the smaller ones
+    // to solve possible conflicts
+    @media only screen and (max-width: $bp-small) {
+        // stack .description on top of .user-reviews
+        flex-direction: column;
+    }
 }
 
 // Flexbox item
@@ -96,6 +112,13 @@
         padding: 2rem;
         // decrease right margin
         margin-right: 3rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+        // remove right margin
+        margin-right: 0;
+        // add some bottom margin
+        margin-bottom: 3rem;
     }
 }
 
